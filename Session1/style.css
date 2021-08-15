@@ -1,0 +1,28 @@
+section {
+  border: 2px solid black;
+}
+
+.container {
+  width: 700px;
+  height: 350px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.205);
+  border-radius: 10px;
+}
+
+.main {
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo,
+.services {
+  height: 50%;
+  border: 2px solid black;
+  /* min-height: 175px; */
+}
+
+.logo img {
+  height: 100%;
+}

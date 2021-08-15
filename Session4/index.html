@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <p class="title">AdminDashboard</p>
+        <p class="title">Sign in to your account.</p>
+      </div>
+      <form class="form-style" action="onSubmit">
+        <input class="form-input emailInput" type="email" placeholder="Email" />
+        <input
+          class="form-input passwordInput"
+          type="password"
+          placeholder="Password"
+        />
+      </form>
+      <div class="form-action">
+        <input type="checkbox" name="" id="" /><span class="rm"
+          >Remember me</span
+        >
+        <a class="fp" href="#">Forget Password?</a>
+      </div>
+      <button class="signIn" type="button">Sign In</button>
+    </div>
+    <div class="container2" style="padding-top: 40px;"><!--The entire box is centered-->
+        <table id="tableContact" class="table table-bordered text-center">
+            <tr >
+                <td colspan="4">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-3">
+                                 <button class="btn btn btn-success add" data-toggle="modal" data-target="#addModal">Add</button>
+                                 <!--The data-toggle data-target attribute is inserted into the modal event that comes with the bootstrap event -->
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                 <td>Number</td>
+                 <td>Name</td>
+                 <td>Phone</td>
+                 <td>Operation</td>
+            </tr>
+        </table>
+         <!--Modify the modal box-->
+        <div class="modal fade up" tabindex="-1" role="dialog" id="updateModal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 <h4 class="modal-title">Edit</h4>
+              </div>
+              <div class="modal-body">
+                   <form>
+                       <div class="form-group">
+                            <input type="text" placeholder="First name" id="reusername" class="form-control" />
+                       </div>
+                       <div class="form-group">
+                            <input type="text" placeholder="phone" class="form-control" id="rephone"/>
+                       </div>
+                   </form>
+              </div>
+              <div class="modal-footer">
+                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                 <button type="button" class="btn btn-primary que_update">Save</button><!--Confirm modification-->
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div>
+    </div>
+     <!--Add modal frame-->
+    <div class="modal fade addmd" tabindex="-1" role="dialog" id="addModal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 <h4 class="modal-title">Add</h4>
+              </div>
+              <div class="modal-body">
+                   <form action="Add" method="post">
+                       <div class="form-group">
+                            <input type="text" placeholder="name" id="addname" name="addname" class="form-control" />
+                       </div>
+                       <div class="form-group">
+                            <input type="text" placeholder="phone" class="form-control" name="addphone" id="addphone"/>
+                       </div>
+                   </form>
+              </div>
+              <div class="modal-footer">
+                 <button type="button" class="btn btn-default cancel" data-dismiss="modal">Cancel</button>
+                 <button type="button" class="btn btn-primary que_add" id="buttonaddcontact">Add</button><!--OK to add-->
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div>
+</div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
