@@ -62,4 +62,4 @@ function increaseCount() {
       audio2.play()
     }
 }
-// 1
+// 12
