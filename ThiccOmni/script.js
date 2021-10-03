@@ -51,7 +51,7 @@ function increaseScore() {
 
 music.addEventListener("mousedown",function() {
   click ++;
-  audio2.volume = 0.2;
+  audio2.volume = 0.15;
   increaseCount();
 });
 
