@@ -2,30 +2,31 @@ var img = document.getElementById("omni1");
 var container = document.getElementById("container");
 var count = document.getElementById("score");
 var score = 0;
-var audio = new Audio("pop.mp3");
-var audio2 = new Audio("music.mp3");
+var audio = new Audio("./audio/pop.mp3");
+var audio2 = new Audio("./audio/music.mp3");
 var music = document.getElementById("music");
 var click = 0;
+var total = document.getElementById("total");
 
 // mouseclick event
 container.addEventListener("mousedown", function () {
   increaseScore();
-  img.src = "ThiccOmniMan.png";
+  img.src = "./img/ThiccOmniMan.png";
   audio.play();
 });
 
 container.addEventListener("mouseup", function () {
-  img.src = "OmniMan.gif";
+  img.src = "./img/OmniMan.gif";
   audio.play();
 });
 
 body.addEventListener("keydown", function () {
-  img.src = "ThiccOmniMan.png";
+  img.src = "./img/ThiccOmniMan.png";
   audio.play();
 });
 
 body.addEventListener("keyup", function () {
-  img.src = "OmniMan.gif";
+  img.src = "./img/OmniMan.gif";
   increaseScore();
   audio.play();
 });
@@ -33,18 +34,20 @@ body.addEventListener("keyup", function () {
 // touch event
 container.addEventListener("touchstart", function () {
   increaseScore();
-  img.src = "ThiccOmniMan.png";
+  img.src = "./img/ThiccOmniMan.png";
   audio.play();
 });
 
 container.addEventListener("touchmove", function () {
-  img.src = "OmniMan.gif";
+  img.src = "./img/OmniMan.gif";
   audio.play();
 });
 
 function increaseScore() {
   score++;
   count.innerHTML = score;
+  main();
+ 
 }
 
 music.addEventListener("mousedown", function () {
@@ -75,37 +78,67 @@ leaderToggle.addEventListener("click", () => {
   }
 });
 
-let apiKey = "1be9a6884abd4c3ea143b59ca317c6b2";
-// Make the reques
-let continentUser = async () => {
-  let a = await fetch(
-    "https://ipgeolocation.abstractapi.com/v1/?api_key=" + apiKey
-  );
-  // Extract JSON body content from HTTP response
-  let dataTrans = await a.json();
-  
-  return dataTrans;
-};
+// let apiKey = "1be9a6884abd4c3ea143b59ca317c6b2";
+// // Make the reques
+// let continentUser = async () => {
+//   let a = await fetch(
+//     "https://www.ip2location.com/download?token=vSqQwb5ClFutLIMcjlVSiwJbicBOmFfwFN7LI99ey9W1IXbaqfHLbBCt1NuXOjeX&file={DATABASE_CODE}" ,
+
+//     {headers: {
+//       "Access-Control-Allow-Origin":"*"
+
+//     },mode:"no-cors"}
+//   );
+//   // Extract JSON body content from HTTP response
+//   let dataTrans = await a.json();
+
+//   return dataTrans;
+// };
+
+// async function getData() {
+//   try {
+//     const result = await fetch(
+//       "https://613483b1bbc9840017de4fd1.mockapi.io/api/user"
+//     );
+//     const resultConverted = await result.json();
+//     return resultConverted;
+//   } catch (error) {
+//     console.log("Lay data bi loi");
+//   }
+// }
+// let continent = getData();
+
+// async function main() {
+//   let data = await continentUser();
+//   let continent = await getData();
+//   console.log(data);
+//   console.log(continent)
+
+// }
+// main();
 
 
 async function getData() {
   try {
     const result = await fetch(
-      "https://613483b1bbc9840017de4fd1.mockapi.io/api/user"
+      "https://613483b1bbc9840017de4fd1.mockapi.io/api/user/1"
     );
     const resultConverted = await result.json();
-    return resultConverted;
+    return(resultConverted);
   } catch (error) {
     console.log("Lay data bi loi");
   }
 }
-let continent = getData();
 
 async function main() {
-  let data = await continentUser();
-  let continent = await getData();
-  console.log(data);
-  console.log(continent)
-  
+  let totalScore = await getData()
+  totalScore.click ++;
+  fetch("https://613483b1bbc9840017de4fd1.mockapi.io/api/user/1", {
+    method: "PUT",
+    headers:{"Content-Type": "application/json"},
+})
+  total.innerHTML = totalScore.click;
+  console.log(totalScore);
 }
-main();
+
+// main()

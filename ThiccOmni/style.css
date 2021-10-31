@@ -5,7 +5,7 @@
 }
 
 body {
-  background-image: url("OmniManThink.jpg");
+  background-image: url("./img/OmniManThink.jpg");
   overflow-y: hidden;
   font-family: Nunito, sans-serif;
   background-size: cover;
